@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import './transaction.dart';
 
 void main() {
@@ -18,16 +19,30 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   final List<Transaction> transactions = [
     Transaction(
-        id: 't1', title: 'New Shoes', amount: 60.05, date: DateTime.now()),
+      id: 't1',
+      title: 'New Shoes',
+      amount: 60.05,
+      date: DateTime.now(),
+    ),
     Transaction(
-        id: 't1', title: 'New shirt', amount: 80.72, date: DateTime.now()),
+      id: 't2',
+      title: 'New shirt',
+      amount: 80.72,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'New Short',
+      amount: 25.35,
+      date: DateTime.now(),
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+        title: Text('Personal Expenses'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +52,7 @@ class MyHomePage extends StatelessWidget {
             width: 500,
             child: Card(
               color: Colors.blueAccent,
-              elevation: 5,
+              elevation: 7,
               child: Text('Chart'),
             ),
           ),
@@ -60,7 +75,7 @@ class MyHomePage extends StatelessWidget {
                       ),
                       padding: EdgeInsets.all(10),
                       child: Text(
-                        tx.amount.toString(),
+                        '\$ ${tx.amount}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
@@ -75,18 +90,18 @@ class MyHomePage extends StatelessWidget {
                           tx.title,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 14,
+                            fontSize: 16,
                           ),
                         ),
                         Text(
-                          tx.date.toString(),
+                          DateFormat.yMMMd().format(tx.date),
                           style: TextStyle(
                             color: Colors.grey,
                             fontSize: 12,
                           ),
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               );
