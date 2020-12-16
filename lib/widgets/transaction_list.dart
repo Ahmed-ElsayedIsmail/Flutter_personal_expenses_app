@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/transaction.dart';
 import 'package:intl/intl.dart';
+import '../models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
@@ -14,7 +14,7 @@ class TransactionList extends StatelessWidget {
         (tx) {
           return Card(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              //mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
                   margin: EdgeInsets.symmetric(
@@ -32,7 +32,7 @@ class TransactionList extends StatelessWidget {
                     '\$ ${tx.amount}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                      fontSize: 20,
                       color: Colors.purpleAccent,
                     ),
                   ),
@@ -48,7 +48,7 @@ class TransactionList extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      DateFormat.yMd().add_jm().format(tx.date),
+                      DateFormat.yMMMd().format(tx.date),
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: 12,

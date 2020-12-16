@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import './new_transaction.dart';
 import './transaction_list.dart';
 import '../models/transaction.dart';
@@ -22,18 +23,12 @@ class _UserTransactionsState extends State<UserTransactions> {
       amount: 80.72,
       date: DateTime.now(),
     ),
-    Transaction(
-      id: 't3',
-      title: 'New Short',
-      amount: 25.35,
-      date: DateTime.now(),
-    ),
   ];
 
-  void _addNewTransaction(String txTitle, String txAmount) {
+  void _addNewTransaction(String txTitle, double txAmount) {
     final newTx = Transaction(
       title: txTitle,
-      amount: double.parse(txAmount),
+      amount: txAmount,
       date: DateTime.now(),
       id: DateTime.now().toString(),
     );

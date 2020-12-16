@@ -31,11 +31,11 @@ class MyHomePage extends StatelessWidget {
         title: Text('Personal Expenses'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        //mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            width: 500,
+            width: double.infinity,
             child: Card(
               color: Colors.blueAccent,
               elevation: 7,
