@@ -11,7 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter App',
+      title: 'Personal Expenses',
+      theme: ThemeData(
+        primarySwatch: Colors.blueGrey,
+        accentColor: Colors.blue,
+        fontFamily: 'Quicksand',
+      ),
       home: MyHomePage(),
     );
   }
@@ -30,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final amountcontroller = TextEditingController();
 
   final List<Transaction> _userTransactions = [
-    Transaction(
+    /* Transaction(
       id: 't1',
       title: 'New Shoes',
       amount: 60.55,
@@ -41,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
       title: 'Weekly Groceries',
       amount: 80.72,
       date: DateTime.now(),
-    ),
+    ),*/
   ];
 
   void _addNewTransaction(String txTitle, double txAmount) {
@@ -82,7 +87,10 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           ),
         ],
-        title: Text('Personal Expenses'),
+        title: Text(
+          'Personal Expenses',
+          style: TextStyle(fontFamily: 'OpenSans'),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -92,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               width: double.infinity,
               child: Card(
-                color: Colors.blueAccent,
+                color: Colors.blue,
                 elevation: 7,
                 child: Text('Chart'),
               ),
