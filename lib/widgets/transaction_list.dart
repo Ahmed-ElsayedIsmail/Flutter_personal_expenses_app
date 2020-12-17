@@ -12,9 +12,11 @@ class TransactionList extends StatelessWidget {
     return Container(
       height: 300,
       child: ListView.builder(
+        padding: const EdgeInsets.all(8),
         itemCount: transactions.length,
         itemBuilder: (ctx, index) {
           return Card(
+            elevation: 3,
             child: Row(
               //mainAxisAlignment: MainAxisAlignment.start,
               children: [
