@@ -4,8 +4,9 @@ import '../models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
+  final Function deleteFunction;
 
-  TransactionList(this.transactions);
+  TransactionList(this.transactions, this.deleteFunction);
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +36,38 @@ class TransactionList extends StatelessWidget {
               itemCount: transactions.length,
               itemBuilder: (ctx, index) {
                 return Card(
+                  elevation: 13,
+                  margin: EdgeInsets.symmetric(vertical: 7, horizontal: 5),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: Colors.blueGrey[600],
+                      radius: 33,
+                      child: Padding(
+                        padding: const EdgeInsets.all(3.0),
+                        child: FittedBox(
+                          child: Text(
+                            '\$${transactions[index].amount}',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
+                    title: Text(
+                      transactions[index].title,
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                    subtitle: Text(
+                      DateFormat.yMMMd().format(transactions[index].date),
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
+                    trailing: IconButton(
+                        onPressed: () => deleteFunction(transactions[index].id),
+                        icon: Icon(Icons.delete),
+                        color: Theme.of(context).errorColor),
+                  ),
+                );
+
+                /*Card(
                   elevation: 3,
                   child: Row(
                     //mainAxisAlignment: MainAxisAlignment.start,
@@ -81,7 +114,7 @@ class TransactionList extends StatelessWidget {
                       ),
                     ],
                   ),
-                );
+                );*/
               },
             ),
     );
